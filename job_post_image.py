@@ -53,13 +53,13 @@ else:  # Variant 3
 
     role_x, role_y, role_font_size = 1200, 1150, 70
     skills_x, skills_y, skills_font_size = 1380, 1470, 60
-    contact_x, contact_y, contact_font_size = 220, 1850, 40
-    email_x, email_y, email_font_size = 220, 1780, 40
-    location_x, location_y, location_font_size = 220, 1920, 40
+    contact_x, contact_y, contact_font_size = 220, 1850, 50
+    email_x, email_y, email_font_size = 220, 1780, 50
+    location_x, location_y, location_font_size = 220, 1920, 50
 
-    color_role = "#3F1561"
-    color_skills = "#3F1561"
-    color_others = "#3F1561"
+    color_role = "#ffffff"
+    color_skills = "#fff"
+    color_others = "#fff"
     draw_skills_label = False
     font_role_path = FONT_BOLD
 
@@ -103,23 +103,9 @@ else:
 
     # === Draw Text ===
     # Draw the job role
-# Draw the job role
+
     draw.text((role_x, role_y), role, font=font_role, fill=color_role)
 
-    # If Variant 3, draw underline for role
-    if variant == "Variant 3":
-        # Use font.getbbox() to measure text width and height
-        bbox = font_role.getbbox(role)
-        text_width = bbox[2] - bbox[0]
-        text_height = bbox[3] - bbox[1]
-        
-        underline_y = role_y + text_height + 5  # adjust spacing as needed
-        
-        draw.line(
-            [(role_x, underline_y), (role_x + text_width, underline_y)],
-            fill=color_role,
-            width=5
-        )
 
 
     if draw_skills_label:
