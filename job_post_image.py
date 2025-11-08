@@ -16,7 +16,7 @@ variant = st.selectbox("Choose Image Variant", ["Variant 1", "Variant 2", "Varia
 
 # === Load Template and Settings Based on Variant ===
 if variant == "Variant 1":
-    TEMPLATE_PATH = "./template/2.png"
+    TEMPLATE_PATH = "./template/1.png"
     template = Image.open(TEMPLATE_PATH)
 
     role_x, role_y, role_font_size = 210, 1050, 150
@@ -32,7 +32,7 @@ if variant == "Variant 1":
     font_role_path = FONT_BOLD
 
 elif variant == "Variant 2":
-    TEMPLATE_PATH = "./template/Job_Post_TEMP.png"
+    TEMPLATE_PATH = "./template/2.png"
     template = Image.open(TEMPLATE_PATH)
 
     role_x, role_y, role_font_size = 210, 1050, 100
@@ -64,11 +64,11 @@ else:  # Variant 3
     font_role_path = FONT_BOLD
 
 # === Input Fields ===
-role = st.text_input("Job Role", value="Python Developer")
-skills = st.text_area("Required Skills (comma-separated)", value="Python, Django, APIs")
-contact = st.text_input("Contact Number", value="+91 9016768065")
-email = st.text_input("Email Address", value="divyeshsarvaiya2@gmail.com")
-location = st.text_input("Job Location", value="Surat")
+role = st.text_input("Job Role", placeholder="Python Developer")
+skills = st.text_area("Required Skills (comma-separated)", placeholder="Python, Django, APIs")
+contact = st.text_input("Contact Number", placeholder="+91 11111111")
+email = st.text_input("Email Address", placeholder="hello@gmail.com")
+location = st.text_input("Job Location", placeholder="Surat")
 logo_file = st.file_uploader("Upload Logo Image", type=["png", "jpg", "jpeg", "webp"])
 
 # === SIDEBAR LOGO CONTROLS (shared) ===
@@ -134,7 +134,7 @@ else:
         st.text(f"Error: {e}")
 
     # === Show & Download ===
-    st.image(canvas, caption="✅ Generated Job Post", use_column_width=True)
+    st.image(canvas, caption="✅ Generated Job Post", use_container_width=True)
 
     buffered = BytesIO()
     canvas.save(buffered, format="PNG")
